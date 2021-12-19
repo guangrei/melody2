@@ -1,22 +1,8 @@
 {
-    "output": "build/melody.phar",
+    "alias": "melody.phar",
     "chmod": "0755",
-    "compactors": [
-        "Herrera\\Box\\Compactor\\Php"
-    ],
-    "compression": "GZ",
-    "directories": ["src"],
-    "files": [
-        "LICENSE"
-    ],
-    "finder": [
-        {
-            "name": ["*.php"],
-            "exclude": [ "Tests", "tests" ],
-            "in": ["src", "vendor"]
-        }
-    ],
-    "git-commit": "git-commit",
+    "directories": ["src","vendor"],
     "main": "bin/melody",
+    "output": "melody.phar",
     "stub": true
 }

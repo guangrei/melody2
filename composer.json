@@ -1,5 +1,5 @@
 {
-    "name":        "sensiolabs/melody",
+    "name":        "grei/melody2",
     "description": "One file composer scripts",
     "license":     "MIT",
     "autoload": {
@@ -17,7 +17,7 @@
     },
     "require-dev": {
         "phpunit/phpunit": "4.3.*",
-        "mikey179/vfsStream": " ~1.4"
+        "mikey179/vfsstream": " ~1.4"
     },
     "config": {
         "bin-dir": "bin"
