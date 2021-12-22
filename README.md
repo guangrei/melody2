@@ -1,6 +1,10 @@
 Melody - One-file composer scripts
 ==================================
 
+```bash
+composer global require grei/melody2:dev-master
+```
+
 Create a file named `test.php`:
 
 ```php
