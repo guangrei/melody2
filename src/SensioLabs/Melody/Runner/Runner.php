@@ -60,35 +60,24 @@ class Runner
 
     private function getBootstrap(Resource $resource)
     {
-        $template = <<<TEMPLATE
-{{ head }}
-?>{{ code }}
-
-TEMPLATE;
-
-        return strtr($template, array(
-            '{{ head }}' => $this->getHead(),
-            '{{ code }}' => $resource->getContent(),
-        ));
+        return preg_replace("`<<<COMPOSER((.|\n)*)COMPOSER;`", $this->getReplace(),$resource->getContent());
     }
 
-    private function getHead()
+    private function getReplace()
     {
-        $head = <<<'HEAD'
-<?php
-
+        $head = <<<'CODE'
 require __DIR__.'/{{ vendorDir }}/autoload.php';
 
 // Error handling part
 error_reporting(-1);
-ini_set('display_errors', 1);
+ini_set('display_errors', '1');
 set_error_handler(function ($level, $message, $file = 'unknown', $line = 0, $context = array()) {
     $message = sprintf('%s: %s in %s line %d', $level, $message, $file, $line);
 
     throw new \ErrorException($message, 0, $level, $file, $line);
 });
 
-HEAD;
+CODE;
 
         return strtr($head, array(
             '{{ vendorDir }}' => $this->vendorDir,

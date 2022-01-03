@@ -13,7 +13,7 @@ use Symfony\Component\Yaml\Yaml;
  */
 class ResourceParser
 {
-    const MELODY_PATTERN = '{^(?:#![^\n]+\n)?<\?php\s*<<<CONFIG(?P<config>.+)CONFIG;(?P<code>.+)$}sU';
+    const MELODY_PATTERN = '{^(?:#![^\n]+\n)?<\?php(?:(.|\n)*)<<<COMPOSER(?P<config>.+)COMPOSER;(?P<code>.+)$}sU';
 
     public function parseResource(Resource $resource)
     {
