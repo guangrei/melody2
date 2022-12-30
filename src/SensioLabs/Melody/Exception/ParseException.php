@@ -22,12 +22,13 @@ $message
 The php script should look like:
 
 <?php
-<<<CONFIG
+<<<COMPOSER
 packages:
-    - "symfony/finder: ~2.5"
-CONFIG;
+    - "grei/tanggalmerah: *"
+COMPOSER;
 
-\$finder = Symfony\Component\Finder\Finder::create();
+$t = new Grei\TanggalMerah();
+var_dump($t->check());
 
 HELP;
     }

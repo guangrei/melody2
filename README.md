@@ -1,9 +1,15 @@
 Melody - One-file composer scripts
 ==================================
 
+## INSTALLATION
+
+with composer
 ```bash
 composer global require grei/melody2
 ```
+or download melody.phar directly, from [release](https://github.com/guangrei/melody2/releases).
+
+## EXAMPLE
 
 Create a file named `test.php`:
 
@@ -11,18 +17,12 @@ Create a file named `test.php`:
 <?php
 <<<COMPOSER
 packages:
-    - "symfony/finder: ~2.8"
+    - "grei/tanggalmerah: *"
 COMPOSER;
 
-$finder = Symfony\Component\Finder\Finder::create()
-    ->in(__DIR__)
-    ->files()
-    ->name('*.php')
-;
+$t = new Grei\TanggalMerah();
+var_dump($t->check());
 
-foreach ($finder as $file) {
-    echo $file, "\n";
-}
 ```
 or you can write richer script format:
 ```php
@@ -38,18 +38,12 @@ declare(strict_types=1);
  */
 <<<COMPOSER
 packages:
-    - "symfony/finder: ~2.8"
+    - "grei/tanggalmerah: *"
 COMPOSER;
 
-$finder = Symfony\Component\Finder\Finder::create()
-    ->in(__DIR__)
-    ->files()
-    ->name('*.php')
-;
+$t = new Grei\TanggalMerah();
+var_dump($t->check());
 
-foreach ($finder as $file) {
-    echo $file, "\n";
-}
 ```
 
 
